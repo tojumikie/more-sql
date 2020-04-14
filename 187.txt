@@ -1,0 +1,51 @@
+select title, author_lname from books where author_lname in ('Carver', 'Lahiri', 'Smith');
+
+select title, released_year from books where released_year in (2017, 1985);
+
+select title, released_year from books
+where released_year not in
+(2000, 2002, 2004, 2006, 2008, 2010, 2012, 2014, 2016);
+
+select title, released_year from books
+where released_year not in
+(2000, 2002, 2004, 2006, 2008, 2010, 2012, 2014, 2016)
+and released_year >= 2000 order by released_year;
+
+select title, released_year from books
+where released_year >= 2000
+and released_year % 2 != 0
+order by released_year;
+
+select title, released_year,
+	case
+		when released_year >= 2000 then 'Modern Lit'
+		else '20th Century Lit'
+	end as GENRE
+from books;
+
+select title, stock_quantity, 
+	case
+		when stock_quantity between 0 and 50 then '*'
+		when stock_quantity between 51 and 100 then '**'
+		else '***'
+	end as stock
+from books;
+
+select title, stock_quantity,
+	case
+		when stock_quantity between 0 and 50 then '*'
+		when stock_quantity between 51 and 100 then '**'
+		when stock_quantity between 100 and 150 then '***'
+		else '****'
+	end as stock
+from books;
+
+select title, stock_quantity,
+	case
+		when stock_quantity <= 50 then '*'
+		when stock_quantity <= 100 then '**'
+		when stock_quantity <= 150 then '***'
+		else '****'
+	end as stock
+from books;
+

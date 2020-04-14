@@ -1,0 +1,9 @@
+print out the current day of the week (the number)
+
+select dayofweek(now()); or
+select date_format(now(), '%w');
+
+
+print out the current day of the week (the name)
+select dayname(now()); or
+select date_format(now(), '%w');
